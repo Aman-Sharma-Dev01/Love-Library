@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import './UploadBook.css';
+import { BACKEND_URL } from '../../utils';
 
 const UploadBook = () => {
   const [title, setTitle] = useState('');
@@ -22,7 +23,7 @@ const UploadBook = () => {
 
     try {
       setIsUploading(true);
-      const res = await axios.post('http://localhost:3001/api/books/upload', formData, {
+      const res = await axios.post(`${BACKEND_URL}/api/books/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       toast.success('"Safely added to your shelf, my love 💖📚"',{

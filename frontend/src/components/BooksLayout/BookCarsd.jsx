@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./BookCard.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { BACKEND_URL } from "../../utils";
 
 const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -19,7 +20,7 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
 
   const handleOpen = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/api/books/${bookid}`);
+      const res = await axios.get(`${BACKEND_URL}/api/books/${bookid}`);
       const { filename, progress } = res.data;
 
       if (filename) {

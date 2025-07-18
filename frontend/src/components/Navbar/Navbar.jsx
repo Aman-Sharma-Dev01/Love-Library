@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import './Navbar.css';
-import logo from '../../assets/icom.png';
+// import logo from '../../assets/icom.png';
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useLibrary } from "../../Context/LibraryContext";
+import { BACKEND_URL } from "../../utils";
 
 const Navbar = () => {
   const [query, setQuery] = useState("");
@@ -16,7 +17,7 @@ const Navbar = () => {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:3001/api/books/search/query?q=${query}`);
+        const res = await axios.get(`${BACKEND_URL}/api/books/search/query?q=${query}`);
         if (res.data?.length === 0) {
           toast.error("Book not found!");
           getAllBooks();
@@ -35,7 +36,7 @@ const Navbar = () => {
       <div className="head-line"><h2>Welcome back, Sunshine...❤</h2></div>
       <div className="Navbar">
         <div className="logo">
-          <img src={logo} alt="Love Library Logo" />
+          <img src={'/Icom.png'} alt="Love Library Logo" />
           <h2>Love Library</h2>
         </div>
         <div className="search-bar">

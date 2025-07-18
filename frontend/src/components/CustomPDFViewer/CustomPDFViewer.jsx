@@ -5,6 +5,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import WordTooltip from "../WordTooltip/WordTooltip";
 import "./CustomPDFViewer.css";
+import { BACKEND_URL } from "../../utils";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -45,7 +46,7 @@ const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
   const saveProgress = async (pageToSave = visiblePage) => {
     if (!bookid || !pageToSave || pageToSave === lastSavedPage.current) return;
     try {
-      await axios.post(`http://localhost:3001/api/books/${bookid}/progress`, {
+      await axios.post(`${BACKEND_URL}/api/books/${bookid}/progress`, {
         progress: pageToSave,
       });
       lastSavedPage.current = pageToSave;
