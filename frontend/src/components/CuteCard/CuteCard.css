@@ -8,7 +8,7 @@
   padding: 16px 20px;
   border-radius: 12px;
   width: fit-content;
-  width: 400px;
+  width: 350px;
   margin: 20px auto;
   font-family: "Dancing Script", cursive;
   font-size: 18px;
@@ -16,11 +16,11 @@
   animation: fadeIn 1s ease;
   text-align: center;
   position: absolute;
-  bottom: 3%;
+  top: 65%;
     
-  left: 7%;
+  left: 7.5%;
   
-  height: 200px;
+  height: 180px;
 }
 
 .cute-quote {

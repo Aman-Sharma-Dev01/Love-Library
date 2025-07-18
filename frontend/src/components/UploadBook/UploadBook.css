@@ -1,17 +1,17 @@
 .upload-book-container {
-  max-width: 400px;
+  max-width: 350px;
   margin: 40px auto;
   border: 18px solid #f9e182;
   background: url("/wood3.jpg") no-repeat;
   background-size: cover;
   padding: 30px;
   border-radius: 12px;
-  height: auto;
+  height: auto; 
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
 
 .upload-book-container h2 {
-  margin-bottom: 20px;
+  font-size: 16px;
   text-align: center;
   color: #fdeeaf;
 }
@@ -24,6 +24,7 @@
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
+  font-size: 14px;
   color: #fdeeaf;
 }
 
