@@ -143,7 +143,7 @@ const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
             <Page
               pageNumber={i + 1}
               data-page-number={i + 1}
-              width={Math.min(window.innerWidth * 0.94, 940)}
+              width={Math.min(window.innerWidth * 0.98, 980)}
               renderMode="canvas"
               renderAnnotationLayer={true}
               renderTextLayer={true}
