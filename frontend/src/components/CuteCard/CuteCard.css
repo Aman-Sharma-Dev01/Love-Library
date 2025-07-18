@@ -1,5 +1,5 @@
 .cute-card {
-  background: url('wood6.jpg') no-repeat;
+  background: url('/wood6.jpg') no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
