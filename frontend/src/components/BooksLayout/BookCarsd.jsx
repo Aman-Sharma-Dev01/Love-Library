@@ -44,7 +44,7 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
   const confirmDelete = async () => {
     setShowDeletePopup(true);
     try {
-      await axios.delete(`http://localhost:3001/api/books/${bookid}`);
+      await axios.delete(`${BACKEND_URL}/api/books/${bookid}`);
       window.location.reload(); // Ideally: update parent state instead
       toast.success("Book deleted successfully!" );
     } catch (err) {
