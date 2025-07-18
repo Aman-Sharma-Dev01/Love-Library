@@ -7,7 +7,7 @@ import CuteCard from "../CuteCard/CuteCard.jsx";
 import Spiral from "../Spiral/Spiral.jsx";
 import SpiralDots from "../Spiral/SpiralDots.jsx";
 
-const booksPerShelf = 11;
+const booksPerShelf = 10;
 
 const BookShelf = () => {
   const { books, getAllBooks } = useLibrary();
