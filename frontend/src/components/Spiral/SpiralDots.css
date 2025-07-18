@@ -1,0 +1,32 @@
+/* SpiralDots.css */
+.spiral-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 0;
+  position: absolute;
+  z-index: 2;
+  bottom: 34.9%;
+  left: 9.7%;
+}
+
+.spiral-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #444;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.spiral-dots-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 0;
+  position: absolute;
+  z-index: 2;
+  bottom: 29.7%;
+  left: 9.7%;
+}

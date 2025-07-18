@@ -1,0 +1,18 @@
+/* Spiral.css */
+.spiral-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 5;
+  bottom: 30.5%;
+  left: 9.4%;
+}
+
+.spiral-hook {
+  width: 20px;
+  height: 40px;
+  color: rgb(255, 255, 255);
+}

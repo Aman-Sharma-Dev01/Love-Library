@@ -1,0 +1,66 @@
+.upload-book-container {
+  max-width: 400px;
+  margin: 40px auto;
+  border: 18px solid #f9e182;
+  background: url("wood3.jpg") no-repeat;
+  background-size: cover;
+  padding: 30px;
+  border-radius: 12px;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.upload-book-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fdeeaf;
+}
+
+.upload-form .form-group {
+  margin-bottom: 20px;
+}
+
+.upload-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fdeeaf;
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+
+    border: 3px solid rgba(255, 187, 0, 0.2);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background-color: rgba(255, 254, 251, 0.8);
+    font-size: 15px;
+    color: #5c2f14;
+}
+.upload-form input[type="text"]:focus,
+.upload-form input[type="file"]:focus {
+    border-color: rgba(255, 187, 0, 0.5);
+    outline: none;
+    background-color: rgba(255, 254, 251, 1);
+}
+
+.upload-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d97706;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.upload-form button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}

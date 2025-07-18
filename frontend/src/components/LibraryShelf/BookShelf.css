@@ -1,0 +1,114 @@
+.bookshelf-container {
+  display: flex;
+  justify-content: flex-end;     /* push almirah to the right */
+  align-items: flex-start;
+  padding: 40px;
+  background: #F5F5DC;
+  background-size: cover;
+  height: 100vh;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+   backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.almirah {
+  background: no-repeat url('wood3.jpg');
+  background-size: cover;
+  padding: 30px 24px;
+  border-radius: 8px;
+  border: 18px solid #f9e182;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 60vw;                   
+  height: auto;                  
+  max-height: 100%;            
+  overflow: auto;
+  box-sizing: border-box;
+  margin-top: 35px;
+  
+}
+
+.shelf-row {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.shelf {
+  display: flex;
+  flex-wrap: wrap;                /* allow wrapping if needed */
+  justify-content: flex-start;    /* align books from the left */
+  align-items: flex-end;         
+  padding-bottom: 16px;
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+}
+.shelf::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 16px;
+  background: no-repeat url('wood5.jpeg');
+   background-size: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+.almirah::-webkit-scrollbar {
+  width: 12px; /* Slightly thicker for smooth rounded look */
+}
+
+.almirah::-webkit-scrollbar-track {
+  background: #d9b38c; /* light wood background */
+  border-radius: 10px; /* ✅ Rounded track edges */
+}
+
+.almirah::-webkit-scrollbar-thumb {
+  background: #5c2f14; /* dark wooden thumb */
+  border-radius: 10px; /* ✅ Rounded thumb edges */
+  border: 2px solid #d9b38c; /* spacing from edge */
+}
+
+.almirah::-webkit-scrollbar-thumb:hover {
+  background: #3e1f0e;
+}
+
+/* Firefox support */
+.almirah {
+  scrollbar-width: thin;
+  scrollbar-color: #5c2f14 #d9b38c; /* thumb track */
+}
+
+
+
+
+/* .bookshelf-container {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f8f8f8;
+  scroll-behavior: smooth;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+} */
+
+/* .almirah {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+} */
+
+.shelf-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+

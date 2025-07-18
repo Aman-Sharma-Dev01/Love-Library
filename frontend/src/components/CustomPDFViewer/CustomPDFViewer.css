@@ -1,0 +1,77 @@
+.pdf-scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  background: #F5F5DC;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.page-wrapper {
+  position: relative;
+  margin: 20px auto;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.page-number-label {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/* 🔄 LOADING SCREEN */
+.pdf-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F5F5DC;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.pdf-loading-overlay p{
+    color: #5c2f14;
+}
+
+.pdf-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #5c2f14;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Scrollbar customization */
+.pdf-scroll-container::-webkit-scrollbar {
+  width: 15px;
+}
+
+.pdf-scroll-container::-webkit-scrollbar-track {
+  background: #d9b38c; /* light grey background */
+}
+
+.pdf-scroll-container::-webkit-scrollbar-thumb {
+  background: #5c2f14; /* thumb color */
+}
+
+.pdf-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #bc7c54; /* darker on hover */
+}

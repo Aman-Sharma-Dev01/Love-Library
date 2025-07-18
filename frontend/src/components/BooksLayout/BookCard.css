@@ -1,0 +1,206 @@
+.book-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Slight tilt is now added dynamically via inline style */
+
+.book-card {
+  width: 60px;
+  height: 220px;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+   position: relative; 
+
+}
+
+.book-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  z-index: 2;
+}
+
+/* Shelf progress bar */
+.shelf-progress-bar {
+  width: 50px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-top: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+  transform: rotate(180deg);
+  position:absolute;
+  bottom: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: white;
+  transition: width 0.4s ease;
+  border-radius: 4px 0 0 4px; /* round left side */
+  transform: rotate(180deg);
+  
+}
+
+/* Color Variants */
+.book-color-1 { background: linear-gradient(145deg, #e4574f, #c8433d); }
+.book-color-2 { background: linear-gradient(145deg, #d4a100, #b8860b); }
+.book-color-3 { background: linear-gradient(145deg, #0097a7, #007c91); }
+.book-color-4 { background: linear-gradient(145deg, #8e24aa, #6a1b9a); }
+.book-color-5 { background: linear-gradient(145deg, #388e3c, #2e7d32); }
+.book-color-6 { background: linear-gradient(145deg, #c2185b, #ad1457); }
+.book-color-7 { background: linear-gradient(145deg, #f57c00, #e65100); }
+.book-color-8 { background: linear-gradient(145deg, #1565c0, #0d47a1); }
+
+.book-menu {
+  position: absolute;
+  left: -72%;
+  transform: translateX(-50%);
+  width: auto;
+  background-color: #fff8ec;
+  border: 1px solid #d8b684;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 9;
+  font-family: 'Segoe UI', sans-serif;
+  transform: rotate(271deg);
+}
+.top-menu {
+  top: -170px;
+}
+
+.bottom-menu {
+  top: -30px;
+  position: absolute;
+  
+
+}
+
+.book-menu h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #80411d;
+}
+
+.book-menu p {
+  font-size: 10px;
+  margin-bottom: 6px;
+  color: #80411d;
+}
+
+.bookmarks-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0;
+  font-size: 13px;
+  color: #4e3b2c;
+}
+.bookmarks-section h2 {
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #2d1a00;
+}
+
+.book-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.book-menu-actions button {
+  padding: 5px;
+  font-size: 14px;
+  background-color: #ffeedb;
+  border: 1px solid #c99860;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.book-menu-actions button:hover {
+  background-color: #fdd6a0;
+}
+
+.delete-btn {
+  background-color: #ffe5e5;
+  border-color: #cc6b6b;
+}
+
+.delete-btn:hover {
+  background-color: #ffcccc;
+}
+.confirm-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.confirm-popup {
+  background: #fffaf1;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.confirm-popup p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #5c2d11;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.confirm-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.confirm-delete {
+  background: #fddede;
+  color: #a30000;
+}
+
+.confirm-delete:hover {
+  background: #ffbaba;
+}
+
+.confirm-buttons button:last-child {
+  background: #eee;
+}
+
+.confirm-buttons button:last-child:hover {
+  background: #ddd;
+}
