@@ -6,6 +6,7 @@ const LibraryContext = createContext();
 
 export const LibraryProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
+  const [streak, setStreak] = useState([]);
 
   const getAllBooks = async () => {
     try {
@@ -56,7 +57,7 @@ export const LibraryProvider = ({ children }) => {
   const getStreak = async () =>{
     try {
       const res = await axios.get(`${BACKEND_URL}/api/streak/get`);
-      return res.data
+      setStreak(res.data);
     } catch (err) {
       console.error("Could not fetch streak:", err);
     }
@@ -71,8 +72,9 @@ export const LibraryProvider = ({ children }) => {
         deleteBook,
         searchBooks,
         addBookmark,
+        getStreak,
         updateProgress,
-        getStreak
+        streak
       }}
     >
       {children}

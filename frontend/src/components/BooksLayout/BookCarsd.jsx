@@ -21,6 +21,9 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
   const handleOpen = async () => {
     try {
       const res = await axios.get(`${BACKEND_URL}/api/books/${bookid}`);
+      const resp = await axios.post(`${BACKEND_URL}/api/streak/update`)
+      console.log(resp.data.message);
+      
       const { filename, progress } = res.data;
 
       if (filename) {

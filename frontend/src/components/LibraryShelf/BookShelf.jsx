@@ -11,7 +11,6 @@ const booksPerShelf = 10;
 
 const BookShelf = () => {
   const { books, getAllBooks } = useLibrary();
-  console.log("Books in BookShelf:", books , getAllBooks);
   
   useEffect(() => {
     getAllBooks();

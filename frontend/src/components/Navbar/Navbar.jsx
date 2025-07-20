@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import './Navbar.css';
 // import logo from '../../assets/icom.png';
 import { toast } from "react-hot-toast";
@@ -8,9 +8,10 @@ import { BACKEND_URL } from "../../utils";
 
 const Navbar = () => {
   const [query, setQuery] = useState("");
-  const { setBooks, getAllBooks , getStreak } = useLibrary();
-  console.log(getStreak);
-  
+  const { setBooks, getAllBooks , streak , getStreak } = useLibrary();
+  useEffect(() => {
+      getStreak();
+    }, []);
 
   const handleSearch = async (e) => {
     if (e.key === "Enter") {
@@ -32,7 +33,6 @@ const Navbar = () => {
       }
     }
   };
-
   return (
     <div className="navbar-container">
       <div className="head-line"><h2>Welcome back, Sunshine...❤</h2></div>
@@ -40,6 +40,10 @@ const Navbar = () => {
         <div className="logo">
           <img src={'/Icom.png'} alt="Love Library Logo" />
           <h2>Love Library</h2>
+          <p className="streak-badge">
+  {streak.missedYesterday ? "🕒" : "⚡"} {streak.streak}
+</p>
+
         </div>
         <div className="search-bar">
           <input
