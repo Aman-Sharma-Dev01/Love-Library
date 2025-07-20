@@ -26,4 +26,5 @@ router.get('/:id/bookmark', bookController.getBookmarks);
 // Search
 router.get('/search/query', bookController.searchBooks);
 
+
 module.exports = router;

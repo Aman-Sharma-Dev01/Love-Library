@@ -53,6 +53,15 @@ export const LibraryProvider = ({ children }) => {
     }
   };
 
+  const getStreak = async () =>{
+    try {
+      const res = await axios.get(`${BACKEND_URL}/api/streak/get`);
+      return res.data
+    } catch (err) {
+      console.error("Could not fetch streak:", err);
+    }
+  }
+
   return (
     <LibraryContext.Provider
       value={{
@@ -63,6 +72,7 @@ export const LibraryProvider = ({ children }) => {
         searchBooks,
         addBookmark,
         updateProgress,
+        getStreak
       }}
     >
       {children}

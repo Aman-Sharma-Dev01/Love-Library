@@ -8,7 +8,9 @@ import { BACKEND_URL } from "../../utils";
 
 const Navbar = () => {
   const [query, setQuery] = useState("");
-  const { setBooks, getAllBooks } = useLibrary();
+  const { setBooks, getAllBooks , getStreak } = useLibrary();
+  console.log(getStreak);
+  
 
   const handleSearch = async (e) => {
     if (e.key === "Enter") {

@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const bookRoutes = require('./routes/book');
+const streakRoutes = require("./routes/Streak")
 
 dotenv.config();
 const app = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: [process.env.FRONTEND_URL , "http://localhost:5173" ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   })
@@ -17,6 +18,8 @@ app.use(
 app.use(express.json());
 app.use('/uploads', express.static('uploads')); // to serve PDF files
 app.use('/api/books', bookRoutes);
+app.use('/api/streak', streakRoutes) ;
+
 
 const PORT = process.env.PORT || 3001;
 
