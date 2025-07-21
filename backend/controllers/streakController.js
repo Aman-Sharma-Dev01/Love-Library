@@ -22,7 +22,6 @@ exports.updateStreak = async (req, res) => {
       ? new Date(streak.lastOpened.getFullYear(), streak.lastOpened.getMonth(), streak.lastOpened.getDate())
       : null;
 
-    // ✅ Already clicked today
     if (lastOpenedDate && lastOpenedDate.getTime() === todayDate.getTime()) {
       return res.json({
         message: "Already updated for today",
@@ -35,39 +34,24 @@ exports.updateStreak = async (req, res) => {
       ? (todayDate - lastOpenedDate) / (1000 * 60 * 60 * 24)
       : null;
 
+    // Main streak logic
     if (diffInDays === 1) {
+      // Consecutive day
       streak.streakCount += 1;
       streak.missedYesterday = false;
-    } else if (diffInDays === 2 && streak.missedYesterday) {
-      streak.streakCount = 0;
-      streak.missedYesterday = false;
-    } else if (diffInDays >= 2) {
+    } else if (diffInDays === 2) {
+      // Missed exactly 1 day → allow
+      streak.missedYesterday = true;
+      // Don’t increment or reset streakCount
+    } else if (diffInDays > 2) {
+      // Missed 2 or more days → reset
       streak.streakCount = 1;
       streak.missedYesterday = false;
     }
 
-    // ✅ Handle missed yesterday only if user skipped yesterday and updates today
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yDate = new Date(yesterday.getFullYear(), yesterday.getMonth(), yesterday.getDate());
-
-    const hasClickedYesterday = streak.history?.some(d => {
-      const histDate = new Date(d);
-      return (
-        histDate.getFullYear() === yDate.getFullYear() &&
-        histDate.getMonth() === yDate.getMonth() &&
-        histDate.getDate() === yDate.getDate()
-      );
-    });
-
-    if (!hasClickedYesterday && diffInDays === 2) {
-      streak.missedYesterday = true;
-    } else {
-      streak.missedYesterday = false;
-    }
-
+    // Update history
     streak.lastOpened = today;
-    streak.history = [...(streak.history || []), todayDate]; // Keep a record
+    streak.history = [...(streak.history || []), todayDate];
 
     await streak.save();
 
