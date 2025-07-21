@@ -11,7 +11,8 @@ exports.updateStreak = async (req, res) => {
       streak = new Streak({
         streakCount: 1,
         lastOpened: today,
-        missedYesterday: false
+        missedYesterday: false,
+        history: [todayDate]
       });
       await streak.save();
       return res.json({ message: "Streak started", streak: 1, missedYesterday: false });
@@ -45,16 +46,29 @@ exports.updateStreak = async (req, res) => {
       streak.missedYesterday = false;
     }
 
-    // ✅ Now check if user missed today but did click yesterday
+    // ✅ Handle missed yesterday only if user skipped yesterday and updates today
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const yDate = new Date(yesterday.getFullYear(), yesterday.getMonth(), yesterday.getDate());
 
-    if (lastOpenedDate && lastOpenedDate.getTime() === yDate.getTime()) {
+    const hasClickedYesterday = streak.history?.some(d => {
+      const histDate = new Date(d);
+      return (
+        histDate.getFullYear() === yDate.getFullYear() &&
+        histDate.getMonth() === yDate.getMonth() &&
+        histDate.getDate() === yDate.getDate()
+      );
+    });
+
+    if (!hasClickedYesterday && diffInDays === 2) {
       streak.missedYesterday = true;
+    } else {
+      streak.missedYesterday = false;
     }
 
     streak.lastOpened = today;
+    streak.history = [...(streak.history || []), todayDate]; // Keep a record
+
     await streak.save();
 
     res.json({
@@ -67,6 +81,7 @@ exports.updateStreak = async (req, res) => {
     res.status(500).json({ error: "Failed to update streak" });
   }
 };
+
 
 
 exports.getStreak = async (req, res) => {
