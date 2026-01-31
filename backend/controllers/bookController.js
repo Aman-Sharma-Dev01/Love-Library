@@ -127,6 +127,25 @@ exports.getBookmarks = async (req, res) => {
   res.json(book.bookmarks);
 };
 
+exports.deleteBookmark = async (req, res) => {
+  try {
+    const { bookmarkIndex } = req.body;
+    const book = await Book.findById(req.params.id);
+    if (!book) return res.status(404).json({ error: 'Book not found' });
+
+    if (bookmarkIndex < 0 || bookmarkIndex >= book.bookmarks.length) {
+      return res.status(400).json({ error: 'Invalid bookmark index' });
+    }
+
+    book.bookmarks.splice(bookmarkIndex, 1);
+    await book.save();
+    res.json({ message: 'Bookmark deleted', bookmarks: book.bookmarks });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete bookmark' });
+  }
+};
+
 exports.searchBooks = async (req, res) => {
   const q = req.query.q || '';
   const books = await Book.find({

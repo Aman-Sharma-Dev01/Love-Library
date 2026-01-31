@@ -4,8 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { BACKEND_URL } from "../../utils";
 
-const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }) => {
-  const [showMenu, setShowMenu] = useState(false);
+const BookCard = ({ bookid, title, progress, index, totalPages, hasBookmarks, isMenuOpen, onToggleMenu }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const gradientClasses = [
@@ -28,8 +27,8 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
 
       if (filename) {
         const startPage = progress || 1;
-       const viewerUrl = `/read/${bookid}/${encodeURIComponent(filename)}/${startPage}`;
-    window.open(viewerUrl, "_blank");
+        const viewerUrl = `/read/${bookid}/${encodeURIComponent(filename)}/${startPage}`;
+        window.open(viewerUrl, "_blank");
       } else {
         alert("No file found.");
       }
@@ -48,7 +47,7 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
     setShowDeletePopup(true);
     try {
       await axios.delete(`${BACKEND_URL}/api/books/${bookid}`);
-      window.location.reload(); // Ideally: update parent state instead
+      window.location.reload();
       toast.success("Book deleted successfully!" );
     } catch (err) {
       console.error("Delete error:", err);
@@ -59,38 +58,26 @@ const BookCard = ({ bookid, title, progress, index, totalPages, bookmarks = [] }
 
   const toggleMenu = (e) => {
     e.stopPropagation();
-    setShowMenu((prev) => !prev);
+    onToggleMenu(bookid);
   };
 
   return (
-    <div className="book-wrapper" style={tiltStyle}>
+    <div className={`book-wrapper ${isMenuOpen ? 'menu-open' : ''}`} style={tiltStyle}>
       <div onClick={toggleMenu} className={`book-card ${bookColorClass}`}>
+        {hasBookmarks && <span className="bookmark-indicator">🔖</span>}
         <span className="book-title">{title}</span>
 
         <div className="shelf-progress-bar">
           <div className="progress-fill" style={{ width: `${percent}%` }}></div>
         </div>
 
-        {showMenu && (
+        {isMenuOpen && (
           <div className={`book-menu ${index < 11 ? "bottom-menu" : "top-menu"}`} onClick={(e) => e.stopPropagation()}>
             <h4>{title}</h4>
             <p>Progress: Page {progress} of {totalPages}</p>
 
-            <div className="bookmarks-section">
-              <h2>Bookmarks:</h2>
-              {bookmarks.length === 0 ? (
-                <p style={{ fontSize: "14px", color: "#999" }}>No bookmarks</p>
-              ) : (
-                <ul>
-                  {bookmarks.map((bm, i) => (
-                    <li key={i}>🔖 {bm.label} — Page {bm.page}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
             <div className="book-menu-actions">
-              <button onClick={handleOpen}>📖 {progress > 1 ? "Resume" : "Read"} Book</button>
+              <button onClick={() => handleOpen()}>📖 {progress > 1 ? "Resume" : "Read"} Book</button>
               <button className="delete-btn" onClick={openDeletePopup}>🗑️ Delete</button>
             </div>
           </div>

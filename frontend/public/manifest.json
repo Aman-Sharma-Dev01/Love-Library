@@ -1,0 +1,21 @@
+{
+  "name": "Love Library",
+  "short_name": "Love Library",
+  "description": "Your personal digital library with reading progress tracking and bookmarks",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5DC",
+  "theme_color": "#5c2f14",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/Icom.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["books", "education", "lifestyle"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

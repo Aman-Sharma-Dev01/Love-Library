@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import BookCard from "../BooksLayout/BookCarsd.jsx";
 import "./BookShelf.css";
 import { useLibrary } from "../../Context/LibraryContext.jsx";
@@ -11,15 +11,28 @@ const booksPerShelf = 10;
 
 const BookShelf = () => {
   const { books, getAllBooks } = useLibrary();
+  const [openMenuId, setOpenMenuId] = useState(null);
+  const shelfRef = useRef(null);
   
   useEffect(() => {
     getAllBooks();
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (shelfRef.current && !e.target.closest('.book-menu') && !e.target.closest('.book-card')) {
+        setOpenMenuId(null);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
   const rows = Math.ceil(books.length / booksPerShelf);
   
   return (
-    <div className="bookshelf-container">
+    <div className="bookshelf-container" ref={shelfRef}>
       <UploadBook/>
       <SpiralDots/>
       <Spiral/>
@@ -32,11 +45,15 @@ const BookShelf = () => {
                 .slice(rowIndex * booksPerShelf, (rowIndex + 1) * booksPerShelf)
                 .map((book, index) => (
                   <BookCard
+                    key={book._id}
                     bookid={book._id}
                     title={book.title}
                     progress={book.progress}
                     index={index + rowIndex * booksPerShelf}
                     totalPages={book.totalPages}
+                    hasBookmarks={book.bookmarks && book.bookmarks.length > 0}
+                    isMenuOpen={openMenuId === book._id}
+                    onToggleMenu={(id) => setOpenMenuId(openMenuId === id ? null : id)}
                   />
                 ))}
             </div>

@@ -22,6 +22,7 @@ router.get('/:id/progress', bookController.getProgress);
 // Bookmarks
 router.post('/:id/bookmark', bookController.addBookmark);
 router.get('/:id/bookmark', bookController.getBookmarks);
+router.delete('/:id/bookmark', bookController.deleteBookmark);
 
 // Search
 router.get('/search/query', bookController.searchBooks);

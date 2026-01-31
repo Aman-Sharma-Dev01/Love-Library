@@ -9,7 +9,7 @@ import { BACKEND_URL } from "../../utils";
 const Navbar = () => {
   const [query, setQuery] = useState("");
   const { setBooks, getAllBooks , streak , getStreak } = useLibrary();
-  console.log(streak.missedYesterday);
+  // streak is loaded asynchronously, so it may be undefined initially
   
   useEffect(() => {
       getStreak();
