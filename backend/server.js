@@ -17,6 +17,17 @@ app.use(
 );
 app.use(express.json());
 app.use('/uploads', express.static('uploads')); // to serve PDF files
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'Love Library API is running',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 app.use('/api/books', bookRoutes);
 app.use('/api/streak', streakRoutes) ;
 
