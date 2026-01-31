@@ -80,3 +80,26 @@
   justify-content: center;
   align-items: center;
 }
+
+.install-btn {
+  background: linear-gradient(135deg, #5c2f14, #80411d);
+  color: #f9e182;
+  border: 2px solid rgba(255, 187, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.install-btn:hover {
+  background: linear-gradient(135deg, #80411d, #a55628);
+  border-color: rgba(255, 187, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}

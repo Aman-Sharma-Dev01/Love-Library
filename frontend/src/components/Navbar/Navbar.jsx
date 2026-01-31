@@ -10,10 +10,70 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const { setBooks, getAllBooks , streak , getStreak } = useLibrary();
   // streak is loaded asynchronously, so it may be undefined initially
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(false);
   
   useEffect(() => {
       getStreak();
     }, []);
+
+  // PWA Install prompt listener
+  useEffect(() => {
+    // Check if running in standalone mode (already installed)
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches 
+      || window.navigator.standalone === true;
+    
+    if (isStandalone) {
+      setIsInstalled(true);
+      return;
+    }
+
+    // Check if prompt was already captured before React mounted
+    if (window.deferredInstallPrompt) {
+      setDeferredPrompt(window.deferredInstallPrompt);
+    }
+
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      window.deferredInstallPrompt = e;
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    // Check if app is already installed
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+      window.deferredInstallPrompt = null;
+      toast.success('App installed successfully! 📚');
+    };
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setIsInstalled(true);
+      }
+      setDeferredPrompt(null);
+    } else {
+      // Fallback for browsers that don't support beforeinstallprompt
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (isIOS) {
+        toast('To install: tap Share button, then "Add to Home Screen"', { icon: '📱', duration: 5000 });
+      } else {
+        toast('Click the install icon in your browser\'s address bar ⬆️', { icon: '💡', duration: 5000 });
+      }
+    }
+  };
 
   const handleSearch = async (e) => {
     if (e.key === "Enter") {
@@ -56,6 +116,11 @@ const Navbar = () => {
             onKeyDown={handleSearch}
           />
         </div>
+        {!isInstalled && (
+          <button className="install-btn" onClick={handleInstallClick}>
+            📲 Install
+          </button>
+        )}
       </div>
       
     </div>
