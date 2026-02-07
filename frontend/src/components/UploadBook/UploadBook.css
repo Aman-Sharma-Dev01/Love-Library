@@ -65,3 +65,106 @@
   background-color: #888;
   cursor: not-allowed;
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .upload-book-container {
+    max-width: 300px;
+    padding: 25px;
+    margin: 30px auto;
+    border-width: 14px;
+  }
+  
+  .upload-book-container h2 {
+    font-size: 15px;
+  }
+  
+  .upload-form label {
+    font-size: 13px;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="file"] {
+    padding: 9px;
+    font-size: 14px;
+  }
+  
+  .upload-form button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .upload-book-container {
+    max-width: 100%;
+    width: 90vw;
+    margin: 15px auto;
+    padding: 20px;
+    border-width: 12px;
+    border-radius: 10px;
+    position: relative;
+    order: 1;
+  }
+  
+  .upload-book-container h2 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .upload-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .upload-form label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border-width: 2px;
+  }
+  
+  .upload-form button {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .upload-book-container {
+    width: 95vw;
+    padding: 15px;
+    margin: 10px auto;
+    border-width: 10px;
+  }
+  
+  .upload-book-container h2 {
+    font-size: 13px;
+  }
+  
+  .upload-form .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .upload-form label {
+    font-size: 11px;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="file"] {
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+  .upload-form button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

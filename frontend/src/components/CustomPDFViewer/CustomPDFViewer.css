@@ -317,3 +317,170 @@
 .pdf-scroll-container::-webkit-scrollbar-thumb:hover {
   background: #bc7c54; /* darker on hover */
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .pdf-toolbar {
+    right: 15px;
+    top: 15px;
+    gap: 8px;
+  }
+  
+  .pdf-page-indicator {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .toolbar-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .bookmark-panel {
+    width: 260px;
+    right: 15px;
+    top: 70px;
+  }
+  
+  .page-wrapper {
+    max-width: 95vw;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .pdf-scroll-container {
+    padding: 10px 0;
+    padding-top: 70px;
+  }
+  
+  .pdf-toolbar {
+    right: 10px;
+    top: 10px;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: calc(100% - 20px);
+  }
+  
+  .pdf-page-indicator {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 15px;
+    gap: 2px;
+  }
+  
+  .page-jump-input {
+    width: 40px;
+    font-size: 12px;
+    padding: 2px;
+  }
+  
+  .pdf-toolbar-buttons {
+    gap: 6px;
+  }
+  
+  .toolbar-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+  
+  .bookmark-panel {
+    position: fixed;
+    width: 90vw;
+    max-width: 340px;
+    right: 50%;
+    transform: translateX(50%);
+    top: 60px;
+    max-height: 60vh;
+  }
+  
+  .bookmark-panel-header {
+    padding: 10px 14px;
+  }
+  
+  .bookmark-panel-header h3 {
+    font-size: 14px;
+  }
+  
+  .add-bookmark-section {
+    padding: 10px;
+    gap: 6px;
+  }
+  
+  .bookmark-input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .add-bookmark-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .bookmark-item {
+    padding: 8px 10px;
+  }
+  
+  .bookmark-label {
+    font-size: 13px;
+  }
+  
+  .page-wrapper {
+    max-width: 100vw;
+    margin: 0;
+  }
+  
+  .page-number-label {
+    font-size: 10px;
+    padding: 3px 6px;
+    right: 10px;
+    bottom: 6px;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .pdf-scroll-container {
+    padding-top: 65px;
+  }
+  
+  .pdf-toolbar {
+    right: 8px;
+    top: 8px;
+    gap: 4px;
+  }
+  
+  .pdf-page-indicator {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+  
+  .page-jump-input {
+    width: 35px;
+    font-size: 11px;
+  }
+  
+  .toolbar-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .bookmark-panel {
+    width: 95vw;
+    top: 55px;
+    max-height: 55vh;
+  }
+  
+  .bookmark-item {
+    padding: 6px 8px;
+  }
+  
+  .page-number-label {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+}

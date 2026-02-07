@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar.jsx';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-page">
         <Navbar/>
         <LibraryShelf/>
     </div>

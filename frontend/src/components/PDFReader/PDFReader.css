@@ -10,3 +10,37 @@
   gap: 1rem;
   align-items: center;
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .pdf-controls {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .pdf-container {
+    padding: 10px;
+  }
+  
+  .pdf-controls {
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .pdf-container {
+    padding: 5px;
+  }
+  
+  .pdf-controls {
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+}

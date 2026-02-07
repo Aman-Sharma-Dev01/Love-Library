@@ -103,3 +103,133 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .navbar-container {
+    flex-direction: column;
+    padding-right: 20px;
+  }
+  
+  .head-line {
+    width: 40%;
+    left: 30px;
+    height: 55px;
+  }
+  
+  .head-line h2 {
+    font-size: 16px;
+  }
+  
+  .Navbar {
+    width: 55%;
+    right: 30px;
+  }
+  
+  .search-bar input {
+    width: 300px;
+  }
+  
+  .logo h2 {
+    font-size: 20px;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+  }
+  
+  .head-line {
+    position: relative;
+    width: 100%;
+    left: 0;
+    height: auto;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+  
+  .head-line h2 {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .Navbar {
+    position: relative;
+    width: 100%;
+    right: 0;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    margin-top: 0;
+  }
+  
+  .logo {
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .logo img {
+    height: 32px;
+  }
+  
+  .logo h2 {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+  
+  .streak-badge {
+    height: 32px;
+    min-width: 32px;
+    font-size: 16px;
+  }
+  
+  .search-bar {
+    width: 100%;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .install-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .head-line h2 {
+    font-size: 13px;
+  }
+  
+  .logo h2 {
+    font-size: 16px;
+  }
+  
+  .logo img {
+    height: 28px;
+  }
+  
+  .streak-badge {
+    height: 28px;
+    min-width: 28px;
+    font-size: 14px;
+    padding: 0 8px;
+  }
+  
+  .search-bar input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}

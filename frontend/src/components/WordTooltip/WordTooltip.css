@@ -28,3 +28,34 @@
   cursor: pointer;
   font-size: 16px;
 }
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .tooltip-box {
+    max-width: 200px;
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+  
+  .tooltip-box p {
+    font-size: 12px;
+    margin: 4px 0;
+  }
+  
+  .tooltip-box button {
+    font-size: 14px;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .tooltip-box {
+    max-width: 180px;
+    padding: 6px;
+  }
+  
+  .tooltip-box p {
+    font-size: 11px;
+  }
+}

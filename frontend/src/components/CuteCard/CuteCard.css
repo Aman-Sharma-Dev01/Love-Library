@@ -31,3 +31,48 @@
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .cute-card {
+    width: 300px;
+    padding: 14px 16px;
+    font-size: 16px;
+    height: 160px;
+    left: 5%;
+    top: 60%;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .cute-card {
+    position: relative;
+    width: 90vw;
+    max-width: 350px;
+    height: auto;
+    min-height: 120px;
+    padding: 16px 18px;
+    font-size: 15px;
+    left: 0;
+    top: 0;
+    margin: 15px auto;
+    order: 3;
+    box-shadow: 6px 10px 10px rgba(105, 74, 34, 0.4);
+  }
+  
+  .cute-quote {
+    line-height: 1.4;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .cute-card {
+    width: 95vw;
+    padding: 14px 15px;
+    font-size: 14px;
+    min-height: 100px;
+    margin: 10px auto;
+  }
+}

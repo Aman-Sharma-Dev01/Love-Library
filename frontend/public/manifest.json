@@ -7,12 +7,20 @@
   "background_color": "#F5F5DC",
   "theme_color": "#5c2f14",
   "orientation": "any",
+  "display_override": ["standalone", "minimal-ui"],
+  "scope": "/",
   "icons": [
     {
       "src": "/Icom.png",
-      "sizes": "any",
+      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Icom.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["books", "education", "lifestyle"],

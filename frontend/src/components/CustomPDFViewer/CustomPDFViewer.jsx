@@ -25,10 +25,30 @@ const CustomPDFViewer = ({ fileUrl, startPage = 1, bookid }) => {
   const [bookmarks, setBookmarks] = useState([]);
   const [showBookmarkPanel, setShowBookmarkPanel] = useState(false);
   const [bookmarkLabel, setBookmarkLabel] = useState("");
+  const [pageWidth, setPageWidth] = useState(Math.min(window.innerWidth * 0.99, 1300));
 
   const containerRef = useRef();
   const lastSavedPage = useRef(startPage);
-  const pageWidth = useMemo(() => Math.min(window.innerWidth * 0.99, 1300), []);
+
+  // Handle responsive page width on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const newWidth = Math.min(window.innerWidth * 0.99, 1300);
+      setPageWidth(newWidth);
+      // Update page height based on new width
+      const estimatedHeight = newWidth * 1.414 + 16;
+      setPageHeight(estimatedHeight);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    // Also handle orientation change for mobile
+    window.addEventListener('orientationchange', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   // Calculate which pages should be rendered (virtualization)
   const visiblePages = useMemo(() => {

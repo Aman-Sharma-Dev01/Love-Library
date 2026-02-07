@@ -16,3 +16,24 @@
   height: 40px;
   color: rgb(255, 255, 255);
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .spiral-container {
+    bottom: 26%;
+    left: 6%;
+    gap: 6px;
+  }
+  
+  .spiral-hook {
+    width: 16px;
+    height: 32px;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .spiral-container {
+    display: none;
+  }
+}

@@ -320,3 +320,166 @@
 .confirm-buttons button:last-child:hover {
   background: #ddd;
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .book-card {
+    width: 55px;
+    height: 200px;
+    font-size: 18px;
+  }
+  
+  .shelf-progress-bar {
+    width: 45px;
+  }
+  
+  .book-menu {
+    left: -60%;
+    padding: 10px;
+    min-width: 180px;
+  }
+  
+  .book-menu h4 {
+    font-size: 13px;
+  }
+  
+  .book-menu p {
+    font-size: 10px;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .book-wrapper {
+    margin: 0 3px;
+  }
+  
+  .book-card {
+    width: 45px;
+    height: 160px;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 3px;
+  }
+  
+  .bookmark-indicator {
+    font-size: 12px;
+    top: 4px;
+  }
+  
+  .shelf-progress-bar {
+    width: 35px;
+    height: 4px;
+    bottom: 3px;
+  }
+  
+  .book-menu {
+    position: fixed;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+    width: 85vw;
+    max-width: 300px;
+    padding: 16px;
+    z-index: 999;
+  }
+  
+  .book-menu.top-menu,
+  .book-menu.bottom-menu {
+    top: 50% !important;
+    position: fixed;
+  }
+  
+  .book-menu h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .book-menu p {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .bookmarks-section h2 {
+    font-size: 12px;
+  }
+  
+  .bookmarks-list-card {
+    max-height: 120px;
+  }
+  
+  .bookmark-item-card {
+    padding: 10px 12px;
+  }
+  
+  .bookmark-label-text {
+    font-size: 13px;
+  }
+  
+  .bookmark-page-text {
+    font-size: 11px;
+  }
+  
+  .book-menu-actions button {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .confirm-popup {
+    width: 90vw;
+    max-width: 320px;
+    padding: 20px;
+  }
+  
+  .confirm-popup p {
+    font-size: 15px;
+  }
+  
+  .confirm-buttons button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ========== SMALL MOBILE STYLES (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .book-wrapper {
+    margin: 0 2px;
+  }
+  
+  .book-card {
+    width: 38px;
+    height: 140px;
+    font-size: 12px;
+    padding: 4px;
+  }
+  
+  .bookmark-indicator {
+    font-size: 10px;
+    top: 3px;
+  }
+  
+  .shelf-progress-bar {
+    width: 30px;
+    height: 3px;
+    bottom: 2px;
+  }
+  
+  .book-menu {
+    width: 90vw;
+    padding: 14px;
+  }
+  
+  .book-menu h4 {
+    font-size: 15px;
+  }
+  
+  .book-menu p {
+    font-size: 11px;
+  }
+  
+  .book-menu-actions button {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

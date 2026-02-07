@@ -30,3 +30,26 @@
   bottom: 27.5%;
   left: 8.9%;
 }
+
+/* ========== TABLET STYLES (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  .spiral-dots-container,
+  .spiral-dots-container1 {
+    bottom: 25%;
+    left: 6%;
+    gap: 14px;
+  }
+  
+  .spiral-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ========== MOBILE STYLES (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .spiral-dots-container,
+  .spiral-dots-container1 {
+    display: none;
+  }
+}
